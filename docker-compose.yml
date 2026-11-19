@@ -6,14 +6,14 @@ services:
       - "8080:3000"
     environment:
       DB_HOST: db
-      DB_USER: app
+      DB_USER: user
       DB_PASSWORD: app123
       DB_NAME: empresa_cloud
     depends_on:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http:127.0.0.1:3000/"]
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3000/"]
       interval: 10s
       timeout: 5s
       retries: 3
